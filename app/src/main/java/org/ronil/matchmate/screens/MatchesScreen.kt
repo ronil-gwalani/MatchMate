@@ -99,7 +99,7 @@ fun MatchesScreen(viewModel: MatchesVM = koinViewModel(), backPress: () -> Unit)
                 )
                 Button(onClick = backPress) {
                     Text(
-                        text = "Explore More",
+                        text = stringResource(R.string.explore_more),
                         color = Color.White.copy(alpha = 0.6f),
                         fontSize = 14.sp
                     )
