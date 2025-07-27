@@ -101,6 +101,8 @@ MatchMate is a modern MVP-stage matrimonial app designed to simulate the functio
 - `domain`: Model definitions and interfaces
 - `data`: Local (Room) and remote (Retrofit) data sources
 - `swipe`: Custom swipe UI logic and animations
+- ➤ *Swipe functionality is inspired by a GitHub library. Instead of adding it as a dependency, I downloaded and extracted the source code, then modularized it into a separate swipe module for better control and customization.*  
+  [🔗 Swipe Library Source](https://github.com/theapache64/twyper)
 
 ---
 
