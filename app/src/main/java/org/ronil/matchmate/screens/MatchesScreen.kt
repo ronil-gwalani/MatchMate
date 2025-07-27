@@ -76,7 +76,19 @@ fun MatchesScreen(viewModel: MatchesVM = koinViewModel(), backPress: () -> Unit)
     BackHandler {
         backPress()
     }
-    Box(Modifier.fillMaxSize()) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(
+                        AppColors.accentColor,
+                        AppColors.secondaryColor,
+                        AppColors.tertiaryColor
+                    )
+                )
+            )
+    ) {
 
         if (states.isEmpty()) {
             // No more cards message
@@ -114,15 +126,7 @@ fun MatchesScreen(viewModel: MatchesVM = koinViewModel(), backPress: () -> Unit)
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                AppColors.accentColor,
-                                AppColors.secondaryColor,
-                                AppColors.tertiaryColor
-                            )
-                        )
-                    )
+
             ) {
                 items(states) { user ->
                     GridProfileCard(
