@@ -23,7 +23,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -35,7 +35,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
     buildFeatures {
         compose = true
@@ -73,7 +73,6 @@ dependencies {
     //            ROOM
     implementation(libs.room.runtime)
     implementation(libs.sqlite.bundled)
-//    implementation(libs.kotlinx.datetime)
     ksp(libs.room.compiler)
 
 
@@ -91,9 +90,7 @@ dependencies {
     implementation(libs.datastore)
     implementation(libs.coil.compose)
     implementation(project(":twyper"))
-//    implementation("com.github.theapache64:twyper:0.0.4")
 
-//    implementation("ccom.alexstyl.swipeablecard:swipeablecard:0.1.0")
 
 }
 room {
