@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MatchMate</string>
+    <string name="submit">Submit</string>
+    <string name="continue_">Continue</string>
+    <string name="skip_for_now">Skip for now</string>
+    <string name="age">Age</string>
+    <string name="email">Email</string>
+    <string name="email_address">Email Address</string>
+    <string name="full_name">Full Name</string>
+    <string name="name">Name</string>
+    <string name="create_your_profile_to_get_started">Create your profile to get started</string>
+    <string name="love_icon">Love Icon</string>
+    <string name="find_your_match">Find Your Match</string>
+    <string name="are_you_sure">Are you sure the information you have provided is correct?\n\n We are not verifying it right now and are trusting you.\n Please be truthful. 🙏</string>
+    <string name="yes_i_m_sure">Yes, I\'m Sure</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm_submission">Confirm Submission</string>
+    <string name="update_your_profile">Update Your Profile</string>
+    <string name="press_back_again_to_exit">Press back again to exit</string>
+</resources>
