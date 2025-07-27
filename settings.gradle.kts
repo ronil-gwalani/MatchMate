@@ -1,6 +1,5 @@
 import java.net.URI
 
-include(":twyper")
 
 
 
@@ -30,4 +29,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MatchMate"
 include(":app")
-include(":swipingLib")
+include(":twyper")

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MatchMate</string>
+    <string name="app_name">Match Mate</string>
     <string name="submit">Submit</string>
     <string name="continue_">Continue</string>
     <string name="skip_for_now">Skip for now</string>
@@ -17,4 +17,10 @@
     <string name="confirm_submission">Confirm Submission</string>
     <string name="update_your_profile">Update Your Profile</string>
     <string name="press_back_again_to_exit">Press back again to exit</string>
+    <string name="logo">Logo</string>
+    <string name="notification_feature_coming_soon">Notification Feature Coming soon</string>
+    <string name="information_updated_successfully">Information Updated Successfully</string>
+    <string name="remove">Remove</string>
+    <string name="reject">Reject</string>
+    <string name="accept">Accept</string>
 </resources>

@@ -80,7 +80,7 @@ fun LikesScreen(
     val cards by viewModel.allUsers.collectAsState(emptyList())
     val bottomSheetState = rememberModalBottomSheetState()
     val swipeController = rememberTwyperController()
-    val states2 = cards.filter { it.status == Status.NoAction }
+    val states = cards.filter { it.status == Status.NoAction }
 
 
     Column(
@@ -99,7 +99,6 @@ fun LikesScreen(
     ) {
 
 
-        // Cards Container - Takes remaining space between top bar and bottom actions
         Box(
             modifier = Modifier
                 .weight(1f)
@@ -107,13 +106,13 @@ fun LikesScreen(
                 .padding(horizontal = 16.dp)
         )
         {
-            LaunchedEffect(states2) {
-                if (states2.size == 3) {
+            LaunchedEffect(states) {
+                if (states.size == 3) {
                     fetchDataFromServer()
                 }
             }
 
-            if (states2.isEmpty()) {
+            if (states.isEmpty()) {
                 // No more cards message
                 Column(
                     modifier = Modifier.align(Alignment.Center),
@@ -144,7 +143,7 @@ fun LikesScreen(
             } else {
                 // Render cards
                 Twyper(
-                    items = states2,
+                    items = states,
                     twyperController = swipeController, // optional
                     onItemRemoved = { item, direction ->
                         println("Item removed: $item -> $direction")
@@ -163,7 +162,7 @@ fun LikesScreen(
                         modifier = Modifier
                             .fillMaxSize(),
                         matchProfile = item,
-                        item==states2.first(),
+                        item==states.first(),
                         state = swipeController.currentCardController
                     )
                 }
@@ -173,7 +172,7 @@ fun LikesScreen(
         }
 
         // Bottom Action Buttons
-        if (states2.isNotEmpty()) {
+        if (states.isNotEmpty()) {
             BottomActionButtons(
                 onDislike = {
                     swipeController.swipeLeft()
@@ -181,7 +180,7 @@ fun LikesScreen(
                 onLike = {
                     swipeController.swipeRight()
                 }, onInfo = {
-                    states2.firstOrNull()?.let { card ->
+                    states.firstOrNull()?.let { card ->
                         viewModel.selectedProfile = card
                         viewModel.showBottomSheet = true
                     }
@@ -648,19 +647,7 @@ private fun ProfileBottomSheetContent(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-//        ProfileDetailSection(
-//            title = "Email",
-//            content = profile.email ?: "Not available",
-//            icon = Icons.Default.Email
-//        )
-//
-//        Spacer(modifier = Modifier.height(16.dp))
-//
-//        ProfileDetailSection(
-//            title = "Phone",
-//            content = profile.phone ?: "Not available",
-//            icon = Icons.Default.Phone
-//        )
+
 
         Spacer(modifier = Modifier.height(32.dp))
 

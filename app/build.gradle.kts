@@ -90,7 +90,6 @@ dependencies {
     implementation (libs.androidx.datastore.preferences)
     implementation(libs.datastore)
     implementation(libs.coil.compose)
-    implementation(project(":swipingLib"))
     implementation(project(":twyper"))
 //    implementation("com.github.theapache64:twyper:0.0.4")
 

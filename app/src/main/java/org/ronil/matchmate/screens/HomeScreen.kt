@@ -107,7 +107,7 @@ fun HomeScreen(viewModel: HomeVM = koinViewModel()) {
                         Image(
 
                             painter = painterResource(R.drawable.logo_trans),
-                            contentDescription = "Logo",
+                            contentDescription = stringResource(R.string.logo),
                             modifier = Modifier.size(60.dp), contentScale = ContentScale.Crop
                         )
                         Spacer(modifier = Modifier.width(8.dp))
@@ -122,7 +122,7 @@ fun HomeScreen(viewModel: HomeVM = koinViewModel()) {
                 actions = {
                     IconButton(
                         onClick = {
-                            context.showToast("Notification Feature Coming soon")
+                            context.showToast(context.getString(R.string.notification_feature_coming_soon))
                         }
                     ) {
                         Icon(
@@ -247,12 +247,11 @@ fun HomeScreen(viewModel: HomeVM = koinViewModel()) {
                     }
                     composable<HomeRouts.Profile>(
                     ) {
-                        val context = LocalContext.current
                         ProfileScreen(false, backPress = {
                             navController.navigateTo(HomeRouts.Likes)
                             viewModel.selectedItemIndex = 0
                         }) {
-                            context.showToast("Information Updated Successfully")
+                            context.showToast(context.getString(R.string.information_updated_successfully))
                             viewModel.selectedItemIndex = 0
                             navController.navigateTo(HomeRouts.Matches)
                         }

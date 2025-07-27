@@ -25,6 +25,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -48,6 +49,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -64,7 +66,7 @@ import org.ronil.matchmate.viewmodels.MatchesVM
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MatchesScreen(viewModel: MatchesVM = koinViewModel(),backPress:()->Unit) {
+fun MatchesScreen(viewModel: MatchesVM = koinViewModel(), backPress: () -> Unit) {
     val cards by viewModel.allUsers.collectAsState(emptyList())
 
     val states = cards.filter { it.status != Status.NoAction }
@@ -74,33 +76,65 @@ fun MatchesScreen(viewModel: MatchesVM = koinViewModel(),backPress:()->Unit) {
     BackHandler {
         backPress()
     }
+    Box(Modifier.fillMaxSize()) {
 
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        contentPadding = PaddingValues(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                brush = Brush.verticalGradient(
-                    colors = listOf(
-                        AppColors.accentColor,
-                        AppColors.secondaryColor,
-                        AppColors.tertiaryColor
-                    )
+        if (states.isEmpty()) {
+            // No more cards message
+            Column(
+                modifier = Modifier.align(Alignment.Center),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Icon(
+                    imageVector = Icons.Default.FavoriteBorder,
+                    contentDescription = "No cards",
+                    tint = Color.White.copy(alpha = 0.6f),
+                    modifier = Modifier.size(80.dp)
                 )
-            )
-    ) {
-        items(states) { user ->
-            GridProfileCard(
-                matchProfile = user,
-                modifier = Modifier.fillMaxWidth(),
-                onClick = {
-                    viewModel.selectedProfile = user
-                    viewModel.showBottomSheet = true
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    text = "No profiles to show",
+                    color = Color.White.copy(alpha = 0.8f),
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Medium
+                )
+                Button(onClick = backPress) {
+                    Text(
+                        text = "Explore More",
+                        color = Color.White.copy(alpha = 0.6f),
+                        fontSize = 14.sp
+                    )
                 }
-            )
+
+            }
+        } else {
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                contentPadding = PaddingValues(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                AppColors.accentColor,
+                                AppColors.secondaryColor,
+                                AppColors.tertiaryColor
+                            )
+                        )
+                    )
+            ) {
+                items(states) { user ->
+                    GridProfileCard(
+                        matchProfile = user,
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {
+                            viewModel.selectedProfile = user
+                            viewModel.showBottomSheet = true
+                        }
+                    )
+                }
+            }
         }
     }
 
@@ -507,11 +541,11 @@ private fun ActionButtons(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Delete,
-                        contentDescription = "Remove",
+                        contentDescription = stringResource(R.string.remove),
                         modifier = Modifier.size(16.dp)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Remove")
+                    Text(stringResource(R.string.remove))
                 }
 
                 Button(
@@ -523,11 +557,11 @@ private fun ActionButtons(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Favorite,
-                        contentDescription = "Accept",
+                        contentDescription = stringResource(R.string.accept),
                         modifier = Modifier.size(16.dp)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Accept")
+                    Text(stringResource(R.string.accept))
                 }
             }
         }
@@ -547,11 +581,11 @@ private fun ActionButtons(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = "Reject",
+                        contentDescription = stringResource(R.string.reject),
                         modifier = Modifier.size(16.dp)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Reject")
+                    Text(stringResource(R.string.reject))
                 }
 
                 OutlinedButton(
@@ -564,11 +598,11 @@ private fun ActionButtons(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Delete,
-                        contentDescription = "Remove",
+                        contentDescription = stringResource(R.string.remove),
                         modifier = Modifier.size(16.dp)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Remove")
+                    Text(stringResource(R.string.remove))
                 }
             }
         }

@@ -12,5 +12,4 @@ val ViewModelModule = module {
     viewModelOf(::LikesVM)
     viewModelOf(::RegistrationVM)
     viewModelOf(::MatchesVM)
-//    viewModelOf(::UserDetailVM)
 }
