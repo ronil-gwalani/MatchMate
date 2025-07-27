@@ -131,7 +131,7 @@ git clone https://github.com/ronil-gwalani/MatchMate.git
 
 ## 📲 Download
 
-👉 [Download Android APK](https://github.com/ronil-gwalani/MatchMate/blob/main/MatchMate.apk)
+👉 [Download Android APK](https://ronildeveloper.in/files/MatchMate.apk)
 
 ---
 
