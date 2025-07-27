@@ -1,89 +1,106 @@
-# MatchMate – Matrimonial App MVP
+# 📱 MatchMate – Matrimonial App MVP
 
-**Developed for Shadi.com as a coding assignment**
+**Developed by Ronil Gwalani as an assignment for Shadi.com**
 
-## 📱 Description
-
-MatchMate is a modern, offline-capable matrimonial app developed as a coding assignment. It simulates core functionality similar to Shaadi.com, providing a swipe-based interface to explore, accept, or decline user profiles. It adheres to modern Android standards, is modular, and offline-friendly.
+MatchMate is a modern MVP-stage matrimonial app designed to simulate the functionality of apps like Shaadi.com. It provides an intuitive, swipe-based experience to browse and engage with user profiles. The app is fully functional offline, ensuring uninterrupted usability with powerful local persistence and seamless sync logic.
 
 ---
 
 ## 🚀 Features
 
-- 🔥 Swipe-based user profile interaction (Right to Accept, Left to Decline)
-- 📡 Retrofit-powered API Integration
-- 📦 Room DB for local and offline-first profile storage
-- 🔀 Offline support with request queuing for retry
-- 🧠 MVVM architecture with multi-module structure
-- 🎨 Jetpack Compose UI with clean, intuitive navigation
-- 🧪 Repository pattern for clean code separation
-- 🧩 BottomSheet for profile info, persistent Match Status
-- ⚙️ Dependency injection via Koin
+- 🔥 Swipe-based matchmaking interface (Accept/Decline)
+- 📦 Offline-first approach using Room database
+- 📡 Retrofit integration with error handling & retry
+- 🎨 Jetpack Compose UI with modern animations and bottom sheets
+- 🔀 MVVM architecture with Repository layer and modular code
+- ⚙️ Koin for dependency injection
+- 🧠 Kotlin Flows & Coroutines for reactive and efficient state handling
+- 🧾 Screenshots and user-friendly design aligned with modern UX standards
+- 🗂️ Multi-module structure (swipe functionality separated cleanly)
 
 ---
 
-## 🔁 App Flow
+## 🧭 App Flow
 
-1. **Splash Screen** ➝ **Registration Screen** (optional/skippable)
-2. Redirects to **Home Screen** with:
-   - `Explore`: Browse user cards, swipe, and view info
-   - `Matches`: View accepted/declined profiles and update status
-   - `Profile`: Add/Edit your profile
-3. If no profiles available, and internet is on, new ones are fetched and saved to Room.
-4. Offline swipe support – queue sync when connection resumes.
-
----
-
-## 🛠️ Tech Stack
-
-| Layer        | Technology       |
-|--------------|------------------|
-| UI           | Jetpack Compose  |
-| DI           | Koin             |
-| Network      | Retrofit         |
-| Local DB     | Room             |
-| Architecture | MVVM + Repository|
-| Structure    | Multi-Module     |
+1. **Splash Screen**
+2. **Registration Screen** (skippable, info stored in preferences)
+3. **Home Screen** – Contains 3 tabs:
+   - **Explore Tab**: Swipe left/right through profiles, view details in bottom sheet
+   - **Matches Tab**: View swiped (Accepted/Declined) profiles and update status
+   - **Profile Tab**: Add or edit your own profile
 
 ---
 
-## ⚡ How it works offline
+## 📦 Offline Support Strategy
 
-- Profiles fetched from API are stored in Room
-- App always reads from Room to display data
-- Swipe actions are saved locally with status
-- If offline, pending fetch/sync requests are queued
-- Once internet is back, syncs automatically
-
----
-
-## 📦 Modules
-
-- `app`: Main app logic, navigation
-- `swipe`: Handles swipe gesture & animations (separated for reusability)
+- Profiles are **fetched from API** and **saved in Room**
+- App **always displays profiles from Room**
+- **Swiping works offline**, and updates are persisted locally
+- If the profile list is exhausted, it will **fetch more profiles** (only when online)
+- **Pending requests are queued** and synced automatically when the internet is available again
 
 ---
 
-## 📋 Assignment Requirements Covered
+## ⚙️ Tech Stack
+
+| Layer          | Technology                      |
+|----------------|----------------------------------|
+| UI             | Jetpack Compose                 |
+| Architecture   | MVVM + Repository Pattern       |
+| Local DB       | Room                            |
+| Network Layer  | Retrofit                        |
+| Observability  | Kotlin Flow                     |
+| DI             | Koin                            |
+| Async Ops      | Kotlin Coroutines               |
+| Structure      | Multi-module                    |
+
+---
+
+## 🧪 Error Handling
+
+- Network errors gracefully handled
+- Retry logic for failed API requests
+- Internet connectivity checks with real-time updates
+- Queued operations sync automatically
+
+---
+
+## 🖼️ Screenshots
+
+*(Include your screenshots here, like this)*
+
+| Explore Tab | Profile Info | Matches |
+|-------------|--------------|---------|
+| ![Explore](screenshots/s3.jepg) | ![Info](screenshots/s4.jepg) | ![Matches](screenshots/s5.jepg) |
+
+---
+
+## 🗂️ Project Modules
+
+- `app`: Base UI logic, DI, Navigation
+- `domain`: Model definitions and interfaces
+- `data`: Local (Room) and remote (Retrofit) data sources
+- `swipe`: Custom swipe UI logic and animations
+
+---
+
+## 📋 Assignment Requirements Checklist
 
 ✅ API Integration  
 ✅ Swipeable Match Cards  
-✅ Accept/Decline Status & Offline Sync  
-✅ Room DB Persistence  
-✅ RecyclerView logic ported to Compose equivalents  
-✅ Clean architecture (MVVM, Repository)  
-✅ Error Handling  
-✅ Modular and scalable code  
+✅ Accept/Decline + Status Handling  
+✅ Room DB & Offline Support  
+✅ MVVM + Repository + Multi-Module  
+✅ Retrofit, Koin, Kotlin Flow  
+✅ Clean Compose UI  
+✅ Error Handling + Retry Logic  
+✅ State Management via Flows & Coroutines  
+✅ Screenshots Included  
+✅ GitHub Integration Ready  
 
 ---
 
-## 📸 Screenshots
-
-*(Add screenshots here if desired)*
-
----
-
-## 📂 How to Run
+## ▶️ Run Locally
 
 1. Clone the repository:
 ```bash
