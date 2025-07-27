@@ -69,11 +69,31 @@ MatchMate is a modern MVP-stage matrimonial app designed to simulate the functio
 
 *(Include your screenshots here, like this)*
 
-| Explore Tab | Profile Info | Matches |
-|-------------|--------------|---------|
-| ![Explore](screenshots/s3.jepg) | ![Info](screenshots/s4.jepg) | ![Matches](screenshots/s5.jepg) |
+
+
+| Splash Screen | Register(Optional)|  
+|-------------|------------------|
+| ![Splash Screen](https://github.com/ronil-gwalani/MatchMate/blob/main/screenshots/s1.jpeg) | ![Register](https://github.com/ronil-gwalani/MatchMate/blob/main/screenshots/register.jpeg) |
+
 
 ---
+
+| Explore | Matches | Edit Profile |
+|-------------|------------------|---------|
+| ![Explore](https://github.com/ronil-gwalani/MatchMate/blob/main/screenshots/s2.jpeg) | ![Matches](https://github.com/ronil-gwalani/MatchMate/blob/main/screenshots/s4.jpeg) | ![Edit](https://github.com/ronil-gwalani/MatchMate/blob/main/screenshots/s6.jpeg) |
+
+---
+
+---
+
+|  |  |  |
+|-------------|------------------|---------|
+| ![Explore](https://github.com/ronil-gwalani/MatchMate/blob/main/screenshots/s3.jpeg) | ![Matches](https://github.com/ronil-gwalani/MatchMate/blob/main/screenshots/s5.jpeg) | ![Edit](https://github.com/ronil-gwalani/MatchMate/blob/main/screenshots/s7.jpeg) |
+
+---
+
+
+
 
 ## 🗂️ Project Modules
 
@@ -105,3 +125,21 @@ MatchMate is a modern MVP-stage matrimonial app designed to simulate the functio
 1. Clone the repository:
 ```bash
 git clone https://github.com/ronil-gwalani/MatchMate.git
+```
+
+---
+
+## 📲 Download
+
+👉 [Download Android APK](https://ronildeveloper.in/files/Hissab%20Manger.apk)
+
+---
+
+## 🙋 About Me
+
+- 🌐 [ronildeveloper.in](https://ronildeveloper.in)  
+- 💼 [LinkedIn – Ronil Gwalani](https://www.linkedin.com/in/ronil-gwalani)  
+- 📄 [Download My Resume](https://ronildeveloper.in/files/Ronil-CV.pdf)
+
+---
+
